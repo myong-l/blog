@@ -28,8 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #ログイン画面
 gem 'devise'
 #管理画面
-#gem 'cancancan'
-#gem 'rails_admin'
+gem 'cancancan'
+gem 'rails_admin'
 #フレームワーク
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
