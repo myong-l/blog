@@ -31,6 +31,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'rails_admin'
 #フレームワーク
+
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
