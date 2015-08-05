@@ -48,9 +48,15 @@
         <a class="navbar-brand" href="#">Coslog</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <% if user_signed_in? %>
+              <li><%= current_user.email %></li>
+              <li><%= link_to 'マイページ', notes_mypage_path %></li>
+              <li><%= link_to 'アカウント編集', edit_user_registration_path %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'アカウント登録', new_user_registration_path %></li>
+              <li><%= link_to 'ログイン', new_user_session_path%></li>
+            <% end %>
           </ul>
         </div>
       </div>

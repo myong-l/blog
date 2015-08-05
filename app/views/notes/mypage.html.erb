@@ -15,14 +15,27 @@
   </thead>
   <tbody>
     <% @notes.each do |note| %>
+    <% if note.user_id === @user.id %>
       <tr>
         <td><%= link_to note.id, note_path(note) %></td>
         <td><%= note.title %></td>
         <td><%= note.note %></td>
         <td><%= note.user_id %></td>
         <td><%= note.created_at %></td>
-        <td><%= note.user.email %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_note_path(note), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      note_path(note),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        
+        </td>
       </tr>
+      <%else%>
+        
+        <% end %>
     <% end %>
   </tbody>
 </table>

@@ -5,26 +5,39 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index
     @notes = Note.all
+    @user = current_user
+  end
+
+  def mypage
+    @notes = Note.all
+    @user = current_user
   end
 
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @note = Note.find(params[:id])
+    @user = current_user
   end
 
   # GET /notes/new
   def new
     @note = Note.new
+    @user = current_user
   end
 
   # GET /notes/1/edit
   def edit
+    @note = Note.find(params[:id])
+    @user = current_user
   end
 
   # POST /notes
   # POST /notes.json
   def create
     @note = Note.new(note_params)
+    @user = current_user
+    @note.user_id = @user.id
 
     respond_to do |format|
       if @note.save
@@ -40,24 +53,62 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
-    respond_to do |format|
-      if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
-        format.json { render :show, status: :ok, location: @note }
+    @user = current_user
+    @note = Note.find(params[:id])
+    check = 'PARAM_OK'
+ 
+    if @note.user_id == @user.id
+      check = 'PARAM_OK'
+    else
+      check = 'PARAM_NG'
+    end
+ 
+    case check
+      when 'PARAM_OK'
+        respond_to do |format|
+          if @note.update(note_params)
+            format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+            format.json { render :show, status: :ok, location: @note }
+          else
+            format.html { render :edit }
+            format.json { render json: @note.errors, status: :unprocessable_entity }
+          end
+        end
+      when 'PARAM_NG'
+        respond_to do |format|        
+            format.html { redirect_to notes_url , notice: 'You can not edit this item' }
+            format.json { head :no_content }
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
     end
   end
 
   # DELETE /notes/1
   # DELETE /notes/1.json
   def destroy
-    @note.destroy
-    respond_to do |format|
-      format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
-      format.json { head :no_content }
+    @note = Note.find(params[:id])
+    @user = current_user    
+    check = 'PARAM_OK'
+     
+    if @note.user_id == @user.id
+      check = 'PARAM_OK'
+    else
+      check = 'PARAM_NG'
+    end
+     
+    case check
+      when 'PARAM_OK'
+        respond_to do |format|
+            @note.destroy
+            format.html { redirect_to notes_url }
+            format.json { head :no_content }
+        end
+      when 'PARAM_NG'
+        respond_to do |format|
+            format.html { redirect_to notes_url , notice: 'You can not delete this item' }
+            format.json { head :no_content }
+        end
+      else
     end
   end
 

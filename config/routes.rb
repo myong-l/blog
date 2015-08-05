@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'notes#index'
+  get 'notes/mypage', to: 'notes#mypage'
   resources :notes
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
