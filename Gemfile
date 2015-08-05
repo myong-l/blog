@@ -39,8 +39,8 @@ gem 'devise-bootstrap-views'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 #画像アップロード
-#gem 'carrierwave'
-#gem 'rmagick'
+gem 'carrierwave'
+gem 'rmagick'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

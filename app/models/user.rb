@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
     self.roles.where(name: name).length > 0
   end
   has_many :notes, :dependent => :destroy
+  mount_uploader :image, ImageUploader
 end
