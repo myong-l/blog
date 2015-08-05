@@ -58,8 +58,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
   # 日付で保存する
   def filename
-    time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
+  #  time = Time.now
+    name = 'icon_img' + '.jpg'
     name.downcase
   end
 end

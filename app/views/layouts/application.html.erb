@@ -53,7 +53,7 @@
                 <% if @user.image? %>
 　　               <%= image_tag @user.image.thumb.url, :size => "50x50" %>
                 <% else %>
-                  <%= image_tag '/noimage.gif', :size => "50x50" %>
+                  <%= image_tag '/image/noimage.gif', :size => "50x50" %>
 　　             <% end %>
               </li>
               <li><%= link_to current_user.username, notes_mypage_path %></li>
