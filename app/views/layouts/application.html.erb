@@ -49,8 +49,7 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
-              <li><%= current_user.email %></li>
-              <li><%= link_to 'マイページ', notes_mypage_path %></li>
+              <li><%= link_to current_user.username, notes_mypage_path %></li>
               <li><%= link_to 'アカウント編集', edit_user_registration_path %></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <% else %>
