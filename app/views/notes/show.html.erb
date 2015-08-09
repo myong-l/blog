@@ -10,6 +10,8 @@
   <dd><%= @note.note %></dd>
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
   <dd><%= @note.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @note.article.text %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

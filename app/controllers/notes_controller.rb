@@ -18,12 +18,14 @@ class NotesController < ApplicationController
   def show
     @note = Note.find(params[:id])
     @user = current_user
+    @content = note.contents.find(params[:id])
   end
 
   # GET /notes/new
   def new
     @note = Note.new
     @user = current_user
+    @note.contents.build
   end
 
   # GET /notes/1/edit
@@ -120,6 +122,9 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:title, :note)
+      params.require(:note).permit(
+        :title, :note,
+        contents_attributes: [:id, :text, :content_img, :note_id]
+        )
     end
 end

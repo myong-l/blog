@@ -29,9 +29,17 @@
     </div>
     <%= error_span(@note[:note]) %>
   </div>
+  <div class="control-group">
+  <%= f.nested_fields_for :contents do |q| %>
+  <%= f.label :note, :class => 'control-label' %>
+  <div class="controls">
+    <p><%= q.text_field :text, :class => 'form-control' %></p>
+    <p><%= q.remove_nested_fields_link 'Delete', :class => 'btn btn-danger', role: 'button' %></p>
+    </div>
+  <% end %>
+  </div>
+  <%= f.add_nested_fields_link :contents, 'Add new', :class => 'btn btn-primary', role: 'button' %>
   
-
-
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             notes_path, :class => 'btn btn-default' %>

@@ -11,7 +11,7 @@
         <b><%= note.created_at %></b>
         <div class="row">
           <div class="col-lg-4">
-              <%= image_tag note.user.image, :size => "50x50" %>
+              <%= image_tag note.user.image.thumb.url, :size => "50x50" %>
           </div>
           <div class="col-lg-8">
             <h3><%= note.user.username %></h3>

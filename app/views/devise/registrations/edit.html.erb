@@ -8,7 +8,7 @@
     <div class="form-group">
         <%= f.label :image %>
         <%= image_tag @user.image.thumb.url if @user.image? %>
-        <%= f.file_field :image %>
+        <%= f.file_field :image, class: "form-control" %>
         <%= f.hidden_field :image_cache %>
       </div>
       <div class="form-group">

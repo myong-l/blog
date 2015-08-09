@@ -25,22 +25,24 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-#ログイン画面
+# ログイン画面
 gem 'devise'
-#管理画面
+# 管理画面
 gem 'cancancan'
 gem 'rails_admin'
-#フレームワーク
+# フレームワーク
 
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
-#日本語化
+# 日本語化
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-#画像アップロード
+# 画像アップロード
 gem 'carrierwave'
 gem 'rmagick'
+# 追加フォーム
+gem 'nested_form_fields'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
