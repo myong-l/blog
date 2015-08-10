@@ -16,9 +16,9 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @content = Content.find_by(note_id: params[:note_id])
     @note = Note.find(params[:id])
     @user = current_user
-    @content = note.contents.find(params[:id])
   end
 
   # GET /notes/new
@@ -26,6 +26,7 @@ class NotesController < ApplicationController
     @note = Note.new
     @user = current_user
     @note.contents.build
+
   end
 
   # GET /notes/1/edit

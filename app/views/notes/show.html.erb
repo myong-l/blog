@@ -8,10 +8,10 @@
   <dd><%= @note.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:note) %>:</strong></dt>
   <dd><%= @note.note %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @note.user_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @note.article.text %></dd>
+  <% @note.contents.each do |content| %>
+  <dt><strong><%= Content.human_attribute_name(:text) %>:</strong></dt>
+    <dd><%= content.text %></dd>
+<% end %>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

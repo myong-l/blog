@@ -7,5 +7,7 @@ class CreateContents < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :contents , :id
+    add_index :contents , :note_id
   end
 end
