@@ -10,12 +10,12 @@ en:
   helpers:
     actions: "Actions"
     links:
-      back: "Back"
-      cancel: "Cancel"
-      confirm: "Are you sure?"
+      back: "戻る"
+      cancel: "キャンセル"
+      confirm: "本当に削除いたしますか?"
       destroy: "Delete"
-      new: "New"
-      edit: "Edit"
+      new: "ノート作成"
+      edit: "編集"
     titles:
       edit: "Edit %{model}"
       save: "Save %{model}"

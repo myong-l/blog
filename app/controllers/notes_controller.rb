@@ -33,6 +33,7 @@ class NotesController < ApplicationController
   def edit
     @note = Note.find(params[:id])
     @user = current_user
+    @content.image.cache! unless @content.image.blank?
   end
 
   # POST /notes

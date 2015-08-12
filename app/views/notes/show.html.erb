@@ -10,7 +10,9 @@
   <dd><%= @note.note %></dd>
   <% @note.contents.each do |content| %>
   <dt><strong><%= Content.human_attribute_name(:text) %>:</strong></dt>
-    <dd><%= content.text %></dd>
+  <dd><%= content.text %></dd>
+   <dt></dt>
+   <dd><%= image_tag content.content_img.url %></dd>
 <% end %>
 </dl>
 

@@ -16,7 +16,7 @@
   <% end %>
 
   <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
+    <%= f.label :タイトル, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :class => 'form-control' %>
     </div>
@@ -24,14 +24,19 @@
   </div>
   <div class="control-group">
     <%= f.nested_fields_for :contents do |q| %>
-      <%= f.label :note, :class => 'control-label' %>
+      <%= f.label :工程手順, :class => 'control-label' %>
       <div class="controls">
-        <p><%= q.text_area   :text, :class => 'form-control' %></p>
-        <p><%= q.remove_nested_fields_link 'Delete', :class => 'btn btn-danger', role: 'button' %></p>
+        <p><%= q.text_area   :text, :class => 'form-control', :size => '20x10' %></p>
+        <%= f.label :工程イメージ, :class => 'control-label' %>
+        <p>
+            <%= q.file_field :content_img, :class => 'form-control' %>
+            <%= q.hidden_field :content_img_cache %>
+        </p>
+        <p><%= q.remove_nested_fields_link '削除', :class => 'btn btn-danger', role: 'button' %></p>
       </div>
     <% end %>
   </div>
-  <%= f.add_nested_fields_link :contents, 'Add new', :class => 'btn btn-primary', role: 'button' %>
+  <%= f.add_nested_fields_link :contents, '工程手順追加', :class => 'btn btn-primary', role: 'button' %>
   
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
