@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
-  resources :users, :only => [ :show]
+  resources :users, :only => [:index, :show]
   # お問い合わせ
   get  'inquiry'         => 'inquiry#index'
   post 'inquiry/confirm' => 'inquiry#confirm'

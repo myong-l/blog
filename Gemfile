@@ -26,23 +26,25 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # ログイン画面
-gem 'devise'
+gem 'devise', '3.5.2'
 # 管理画面
-gem 'cancancan'
-gem 'rails_admin'
+gem 'cancancan', '1.12.0'
+gem 'rails_admin', '0.6.8'
 # フレームワーク
 
-gem 'less-rails'
-gem 'twitter-bootstrap-rails'
-gem 'devise-bootstrap-views'
+gem 'less-rails', '2.7.0'
+gem 'twitter-bootstrap-rails', '3.2.0'
+gem 'devise-bootstrap-views', '0.0.5'
 # 日本語化
-gem 'devise-i18n'
-gem 'devise-i18n-views'
+gem 'devise-i18n', '0.12.1'
+gem 'devise-i18n-views', '0.3.4'
 # 画像アップロード
-gem 'carrierwave'
-gem 'rmagick'
+gem 'carrierwave', '0.10.0'
+gem 'rmagick', '2.15.4'
 # 追加フォーム
-gem 'nested_form_fields'
+gem 'nested_form_fields', '0.7'
+#サンプル作成
+gem 'faker', '1.4.3'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
