@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'users/index'
-
-  get 'users/show'
-
   root 'notes#index'
   get 'notes/mypage', to: 'notes#mypage'
   resources :notes
@@ -11,7 +7,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [ :show]
+  # お問い合わせ
+  get  'inquiry'         => 'inquiry#index'
+  post 'inquiry/confirm' => 'inquiry#confirm'
+  post 'inquiry/thanks'  => 'inquiry#thanks'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

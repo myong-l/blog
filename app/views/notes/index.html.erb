@@ -5,7 +5,6 @@
 <ul class="row">
   <% @notes.each do |note| %>
     <li class="col-lg-3">
-      <a href="<%= note_path(note)%>">
         <h2><%= note.title %></h2>
         <p><%= note.note %></p>
         <b><%= note.created_at.strftime('%Y/%m/%d') %></b>
@@ -17,7 +16,6 @@
             <h3><%= note.user.username %></h3>
           </div>
         </div>
-      </a>
     </li>
   <% end %>
 </ul>
