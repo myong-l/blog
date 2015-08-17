@@ -1,7 +1,7 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
+ja:
   breadcrumbs:
     application:
       root: "Index"
@@ -13,7 +13,7 @@ en:
       back: "戻る"
       cancel: "キャンセル"
       confirm: "本当に削除いたしますか?"
-      destroy: "Delete"
+      destroy: "削除"
       new: "ノート作成"
       edit: "編集"
     titles:

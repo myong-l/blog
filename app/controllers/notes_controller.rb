@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @notes = Note.order(created_at: :desc).page(params[:page])
     @user = current_user
   end
 
@@ -33,7 +33,6 @@ class NotesController < ApplicationController
   def edit
     @note = Note.find(params[:id])
     @user = current_user
-    @content.image.cache! unless @content.image.blank?
   end
 
   # POST /notes

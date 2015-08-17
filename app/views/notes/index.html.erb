@@ -4,21 +4,31 @@
 </div>
 <ul class="row">
   <% @notes.each do |note| %>
-    <li class="col-lg-3">
+    <li class="col-lg-4">
+    <a href="<%= note_path(note) %>">
         <h2><%= note.title %></h2>
         <p><%= note.note %></p>
         <b><%= note.created_at.strftime('%Y/%m/%d') %></b>
+    </a>
+    <a href="<%= user_path(note.user_id) %>">
         <div class="row">
           <div class="col-lg-4">
-              <%= image_tag note.user.image.thumb.url, :size => "50x50" %>
+              <% if note.user.image? %>
+　　               <%= image_tag note.user.image.thumb.url, :size => "50x50" %>
+                <% else %>
+                  <%= image_tag '/image/noimage.gif', :size => "50x50" %>
+　　             <% end %>
           </div>
           <div class="col-lg-8">
             <h3><%= note.user.username %></h3>
           </div>
         </div>
+        </a>
     </li>
+
   <% end %>
 </ul>
+<%= paginate @notes %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_note_path,
             :class => 'btn btn-primary' %>

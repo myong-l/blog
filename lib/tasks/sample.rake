@@ -22,7 +22,11 @@ namespace :db do
     notes = Note.all
     10.times do
       text = Faker::Lorem.sentence(5)
-      notes.each { |note| note.contents.create!(text: text) }
+      image = Faker::Avatar.image("image/noimage.gif")
+      notes.each { |note| note.contents.create!(
+      	           text: text,
+      	           content_img: image
+      	           ) }
     end
   end
 end
