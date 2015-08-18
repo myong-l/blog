@@ -60,7 +60,7 @@
               <li><%= link_to 'アカウント編集', edit_user_registration_path %></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <% else %>
-              <li><%= link_to 'アカウント登録', new_user_registration_path %></li>
+              <li><%= link_to(content_tag(:i, 'アカウント登録', class: 'fa fa-sign-out'), new_user_registration_path) %></li>
               <li><%= link_to 'ログイン', new_user_session_path%></li>
             <% end %>
           </ul>

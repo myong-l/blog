@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.order(created_at: :desc).page(params[:page])
+    @note_item = Note.order(created_at: :desc).page(params[:page]).search(params[:search])
     @user = current_user
   end
 

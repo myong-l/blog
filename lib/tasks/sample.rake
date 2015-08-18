@@ -15,7 +15,7 @@ namespace :db do
                    password_confirmation: password)
     end
     users = User.all
-    10.times do
+    50.times do
       note = Faker::Lorem.sentence(5)
       users.each { |user| user.notes.create!(title: note) }
     end
