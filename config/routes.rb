@@ -2,12 +2,13 @@ Rails.application.routes.draw do
 
   root 'notes#index'
   get 'notes/mypage', to: 'notes#mypage'
+  get 'notes/new_list', to: 'notes#new_list'
   resources :notes
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:index, :show ]
   # お問い合わせ
   get  'inquiry'         => 'inquiry#index'
   post 'inquiry/confirm' => 'inquiry#confirm'

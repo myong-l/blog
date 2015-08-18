@@ -6,4 +6,7 @@
 <ul class="row">
     <%= render :partial => 'note_all_list' %>
 </ul>
-<%= link_to 'ノート一覧', notes_new_list_path, :class => 'btn btn-primary' %>
+<p><%= paginate @note_item %></p>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_note_path,
+            :class => 'btn btn-primary' %>

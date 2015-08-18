@@ -7,6 +7,11 @@ class NotesController < ApplicationController
     @note_item = Note.order(created_at: :desc).page(params[:page]).search(params[:search])
     @user = current_user
   end
+  
+  def new_list
+    @note_item = Note.order(created_at: :desc).page(params[:page]).search(params[:search])
+    @user = current_user
+  end
 
   def mypage
     @notes = Note.all

@@ -1,0 +1,16 @@
+<div class="col-lg-3">
+  <div class="well sidebar-nav">
+    <h3>Sidebar</h3>
+    <ul class="nav nav-list">
+      <li class="nav-header">Sidebar</li>
+      <!-- 検索フォーム -->
+      <li><%= form_tag notes_path, :method => 'get' do %> 
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "検索", :title => nil %>
+      <% end %></li>
+      <li><%= link_to "Link1", "/path1"  %></li>
+      <li><%= link_to "Link2", "/path2"  %></li>
+      <li><%= link_to "Link3", "/path3"  %></li>
+    </ul>
+  </div><!--/.well -->
+</div><!--/span-->

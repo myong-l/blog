@@ -1,4 +1,4 @@
-    <h1><%= @users.username %></h1>
+    <h1><%= @user.username %></h1>
 <table class="table table-striped">
   <tbody>
     <% @user.notes.each do |note| %>
@@ -8,7 +8,6 @@
         <td><%= note.note %></td>
         <td><%= note.user_id %></td>
         <td><%= note.created_at.strftime('%Y/%m/%d') %></td>
-        
         <td>
         <% if user_signed_in? %>
           <% if note.user_id == current_user.id %>
@@ -24,11 +23,10 @@
         <% end %>
         </td>
       </tr>
-      
     <% end %>
   </tbody>
 </table>
-<%= paginate @user %>
+<%= paginate @user.notes %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_note_path,
             :class => 'btn btn-primary' %>

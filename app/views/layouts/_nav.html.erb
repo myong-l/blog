@@ -1,0 +1,34 @@
+<div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<%= root_path %>">Coslog</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li>
+                <% if @user.image? %>
+　　               <%= image_tag @user.image.thumb.url, :size => "50x50" %>
+                <% else %>
+                  <%= image_tag '/image/noimage.gif', :size => "50x50" %>
+　　             <% end %>
+              </li>
+              <li><%= link_to current_user.username, user_path(current_user.id) %></li>
+              <li><%= link_to edit_user_registration_path do %>
+                <i class="fa fa-cog"></i>
+              <% end %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to(content_tag(:i, 'アカウント登録', class: 'fa fa-sign-out'), new_user_registration_path) %></li>
+              <li><%= link_to 'ログイン', new_user_session_path%></li>
+            <% end %>
+            <li><%= link_to t('.new', :default => t("helpers.links.new")),
+            new_note_path,
+            :class => 'btn btn-primary' %></li>
+          </ul>
+        </div>
+      </div>
+    </div>

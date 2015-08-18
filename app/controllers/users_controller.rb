@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(params[:id])
+  	@user = User.find(params[:id]).page(params[:page])
   	@notes = @user.notes.page(params[:page])
   	@note = Note.find_by(user_id: params[:user_id])
   	
