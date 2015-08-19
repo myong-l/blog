@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   has_many :notes, :dependent => :destroy
   accepts_nested_attributes_for :notes
   mount_uploader :image, ImageUploader
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
 end

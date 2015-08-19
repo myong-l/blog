@@ -17,6 +17,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'kaminari', '0.16.3'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Turbolinksで遷移したときもjQuery.ready()を呼び出してくれる
+gem "jquery-turbolinks"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -44,8 +46,9 @@ gem 'carrierwave', '0.10.0'
 gem 'rmagick', '2.15.4'
 # 追加フォーム
 gem 'nested_form_fields', '0.7'
-#サンプル作成
+# サンプル作成
 gem 'faker', '1.4.3'
+# 
 # Use Unicorn as the app server
 # gem 'unicorn'
 

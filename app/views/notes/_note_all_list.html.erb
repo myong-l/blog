@@ -1,5 +1,5 @@
 <% @note_item.each do |note| %>
-<li class="col-lg-4">
+<li id="note" class="col-lg-4">
     <a href="<%= note_path(note) %>">
         <h2><%= note.title %></h2>
         <p><%= note.note %></p>

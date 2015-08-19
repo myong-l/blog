@@ -16,3 +16,5 @@
 //= require turbolinks
 //= require_tree .
 //= require nested_form_fields
+//= require jquery.infinitescroll
+//= require jquery.turbolinks

@@ -2,11 +2,12 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-
+<div class="page">
 <ul class="row">
     <%= render :partial => 'note_all_list' %>
 </ul>
-<p><%= paginate @note_item %></p>
+</div>
+<div><%= paginate @note_item %></div>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_note_path,
             :class => 'btn btn-primary' %>
