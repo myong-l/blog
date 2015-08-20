@@ -20,9 +20,9 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
-    @note = Note.find(params[:id])
+    @note =     Note.find(params[:id])
     @contents = @note.contents.page(params[:page]).per(6)
-    @comments = @note.comments
+    @comment =  Note.find(params[:id]).comments.build
   end
 
   # GET /notes/new

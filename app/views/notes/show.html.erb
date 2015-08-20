@@ -13,20 +13,7 @@
     </ul>
   </div>
 <%= paginate @contents %>
-<h3>コメント：</h3>
-  <% @comments.each do |comment| %>
-    <h4><%= comment.from %> さん</h4>
-    <p><%= comment.body %></p>
-    <p>[<%= link_to 'コメントを削除する',  [@note, comment], 
-             confirm: 'Are you sure?', method: :delete %>]</p>
-  <% end %>
-<%= form_for [@note, @comment] do |f| %>
-  <p>from:</p>
-  <p><%= f.text_field :from %></p>
-  <p>comment:</p>
-  <p><%= f.text_area :body, :rows => 5 %></p>
-<%= f.submit 'コメントを投稿する' %>
-<% end %>
+<%= render "comments/form" %>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               notes_path, :class => 'btn btn-default'  %>
 

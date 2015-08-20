@@ -1,0 +1,22 @@
+<ul>
+<% @note.comments.each do |comment| %>
+  <li>名前：<%= comment.commenter %>
+  <br><%= comment.body %>
+  </li>
+<% end %>
+</ul>
+
+<h2>コメント記入</h2>
+<%= form_for [@note, @comment] do |f| %>
+  <p>
+    <%= f.label :commenter %><br />
+    <%= f.text_field :commenter, value: "名無し", size: 30 %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body, :cols => 50, :rows => 10 %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
