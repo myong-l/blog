@@ -1,29 +1,7 @@
-    <h1><%= @user.username %></h1>
-<table class="table table-striped">
-  <tbody>
-    <% @user.notes.each do |note| %>
-      <tr>
-        <td><%= link_to note.id, note_path(note) %></td>
-        <td><%= note.title %></td>
-        <td><%= note.note %></td>
-        <td><%= note.user_id %></td>
-        <td><%= note.created_at.strftime('%Y/%m/%d') %></td>
-        <td>
-        <% if user_signed_in? %>
-          <% if note.user_id == current_user.id %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_note_path(note), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      note_path(note),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-          <% end %>
-        <% else %>
-        <% end %>
-        </td>
-      </tr>
-    <% end %>
+<h1><%= @user.username %></h1>
+<table id="notes" class="table table-striped">
+    <tbody class="page">
+    <%= render 'note' %>
   </tbody>
 </table>
 <%= paginate @notes %>

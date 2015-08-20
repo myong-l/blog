@@ -9,8 +9,7 @@ class NotesController < ApplicationController
   end
   
   def new_list
-    @note_item = Note.order(created_at: :desc).page(params[:page]).search(params[:search])
-    @user = current_user
+    @note_item = Note.order(created_at: :desc).page(params[:page])
   end
 
   def mypage
@@ -21,9 +20,9 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
-    @content = Content.find_by(note_id: params[:note_id])
     @note = Note.find(params[:id])
-    @user = current_user
+    @contents = @note.contents.page(params[:page]).per(6)
+    @comments = @note.comments
   end
 
   # GET /notes/new
@@ -31,7 +30,6 @@ class NotesController < ApplicationController
     @note = Note.new
     @user = current_user
     @note.contents.build
-
   end
 
   # GET /notes/1/edit
@@ -130,7 +128,8 @@ class NotesController < ApplicationController
     def note_params
       params.require(:note).permit(
         :title, :note,
-        contents_attributes: [:id, :text, :content_img, :note_id]
+        contents_attributes: [:id, :text, :content_img, :note_id],
+        comments_attributes: [:id, :note_id, :body, :from]
         )
     end
 end

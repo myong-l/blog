@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root 'notes#index'
   get 'notes/mypage', to: 'notes#mypage'
   get 'notes/new_list', to: 'notes#new_list'
-  resources :notes
+  resources :notes do
+    resources :comments, :only => [:create, :destroy]
+  end
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
         sessions: 'users/sessions'

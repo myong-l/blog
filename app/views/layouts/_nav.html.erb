@@ -10,8 +10,8 @@
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
               <li>
-                <% if @user.image? %>
-　　               <%= image_tag @user.image.thumb.url, :size => "50x50" %>
+                <% if current_user.image? %>
+　　               <%= image_tag current_user.image.thumb.url, :size => "50x50" %>
                 <% else %>
                   <%= image_tag '/image/noimage.gif', :size => "50x50" %>
 　　             <% end %>

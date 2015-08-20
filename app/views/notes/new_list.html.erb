@@ -2,9 +2,9 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<div class="page">
-<ul class="row">
-    <%= render :partial => 'note_all_list' %>
+<div id="contents">
+<ul class="row page">
+    <%= render 'note_all_list' %>
 </ul>
 </div>
 <div><%= paginate @note_item %></div>

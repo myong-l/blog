@@ -1,0 +1,8 @@
+<% @contents.each do |content| %>
+  <li class="content col-lg-6">
+     <div><%= Content.human_attribute_name(:text) %>:</div>
+     <div><%= content.text %></div>
+     <div></div>
+     <div><%= image_tag content.content_img.url %></div>
+   </li>
+<% end %>
